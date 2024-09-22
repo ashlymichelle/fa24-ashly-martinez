@@ -45,12 +45,11 @@ class WordGuesserApp < Sinatra::Base
     ### YOUR CODE HERE ###
     begin 
       set = @game.guess(letter)
-    rescue ArgumentError 
-      
+    rescue ArgumentError => e
       flash[:message] = "Invalid guess."
     else 
       if(!(set))
-        flash[:message] = "You have already used that letter"
+        flash[:message] = "You have already used that letter."
       end 
     redirect '/show'
     end 
