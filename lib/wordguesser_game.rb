@@ -13,12 +13,15 @@ class WordGuesserGame
     @guesses = ""
     @wrong_guesses= ""
   end
-
+  
+  
 
   def guess(user_guess)
+    
     raise ArgumentError, "Input is nil" if user_guess == nil
+    
     user_guess.downcase!
-    raise ArgumentError, "Invalid Input" if !(user_guess =~/[a-z]/)
+    raise ArgumentError, "Invalid guess." if !(user_guess =~/[a-z]/)
     if @word.include?(user_guess) && !(@guesses.include?(user_guess))
       # Will set guess to new format
       @guesses += user_guess
@@ -32,7 +35,6 @@ class WordGuesserGame
   end 
 
   def word_with_guesses()
-    
     # Set the guess with underscores 
     guess_word = "-" * @word.length
     @guesses.each_char do |char_g|     
