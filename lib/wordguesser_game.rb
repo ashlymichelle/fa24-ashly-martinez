@@ -19,7 +19,6 @@ class WordGuesserGame
   def guess(user_guess)
     
     raise ArgumentError, "Input is nil." if user_guess == nil
-    
     user_guess.downcase!
     raise ArgumentError, "Invalid guess." if !(user_guess =~/[a-z]/)
     if @word.include?(user_guess) && !(@guesses.include?(user_guess))
